@@ -1,0 +1,10 @@
+﻿@model Practice.Mvc5.Models.TestModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(s=>Model.Name) 
+}
+
