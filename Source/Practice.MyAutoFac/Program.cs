@@ -12,7 +12,7 @@ namespace Practice.MyAutoFac
         {
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<NullLoger>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterAssemblyModules<
+           
             var c = builder.Build();
 
             var nullObj = c.Resolve<INullObj>();
