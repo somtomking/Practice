@@ -11,7 +11,7 @@ namespace Practice.NewLifes.Services.Users
     {
         public void Do()
         {
-         
+        
         }
     }
 }
