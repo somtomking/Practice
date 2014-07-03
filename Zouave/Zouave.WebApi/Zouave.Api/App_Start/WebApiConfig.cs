@@ -28,6 +28,7 @@ namespace Zouave.Api
             ContainerBuilder builder = new ContainerBuilder();
             var container = builder.Build();
             var resolver = new AutofacWebApiDependencyResolver(container);
+            
 
             GlobalConfiguration.Configuration.DependencyResolver = resolver;//ApiController　WebApi注
         }
