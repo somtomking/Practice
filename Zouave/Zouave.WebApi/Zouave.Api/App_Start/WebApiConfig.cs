@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using Autofac;
-using Autofac.Integration.WebApi;
+ 
 
 namespace Zouave.Api
 {
@@ -21,16 +20,7 @@ namespace Zouave.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-
-
-            //IOC
-            ContainerBuilder builder = new ContainerBuilder();
-            var container = builder.Build();
-            var resolver = new AutofacWebApiDependencyResolver(container);
-            
-
-            GlobalConfiguration.Configuration.DependencyResolver = resolver;//ApiController　WebApi注
+           
         }
     }
 }
