@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
+using System.Web.Http.Filters;
 
 namespace Practice.WebAPI.Controllers
 {
@@ -22,10 +24,15 @@ namespace Practice.WebAPI.Controllers
         {
             return "value";
         }
-
+        public string Get(string text)
+        {
+            return text;
+        }
         // POST: api/Test
         public void Post([FromBody]string value)
         {
+             
+            
         }
 
         // PUT: api/Test/5
