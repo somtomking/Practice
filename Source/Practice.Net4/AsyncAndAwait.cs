@@ -36,5 +36,23 @@ namespace Practice.Net4
             await Task.Delay(100);
             return "123";
         }
+
+
+        static void Main(string[] args)
+        {
+            Test();
+            Console.WriteLine("end!");
+            Console.ReadKey();
+        }
+
+        private static async Task Test()
+        {
+            var strTask = AsyncAndAwait.Do();
+            var result = await strTask;
+            Console.WriteLine(result);
+
+
+
+        }
     }
 }

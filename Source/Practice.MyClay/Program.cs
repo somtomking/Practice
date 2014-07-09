@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClaySharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace Practice.MyClay
     {
         static void Main(string[] args)
         {
+            ClayFactory f = new ClayFactory();
+            
         }
     }
 }

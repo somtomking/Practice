@@ -14,7 +14,7 @@ namespace Practice.WebAPI
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            GlobalConfiguration.Configuration.Filters.Add(new CustomAuthorizeAttribute());
+            //GlobalConfiguration.Configuration.Filters.Add(new CustomAuthorizeAttribute());
             // GlobalConfiguration.Configuration.MessageHandlers.Add(new CustomMessageHandler());
 
         }

@@ -21,7 +21,9 @@ namespace Practice.Net4
             var strTask = AsyncAndAwait.Do();
             var result = await strTask;
             Console.WriteLine(result);
-           
+
+
+            
         }
 
     }

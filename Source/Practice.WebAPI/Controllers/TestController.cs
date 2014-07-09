@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice.WebAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,38 +12,48 @@ namespace Practice.WebAPI.Controllers
 {
     public class TestController : ApiController
     {
-        // GET: api/Test
-        public IEnumerable<string> Get()
+        IList<TestModel> _data = TestModel.Data();
+        public TestController()
         {
 
-            
-            return new string[] { "value1", "value2" };
+        }
+        // GET: api/Test
+        public IEnumerable<TestModel> Get()
+        {
+           
+            return _data;
         }
 
         // GET: api/Test/5
-        public string Get(int id)
+        public TestModel Get(int id)
         {
-            return "value";
+            return _data.FirstOrDefault(s => s.Id == id);
         }
-        public string Get(string text)
+       
+        public TestModel GetByCategory(string category)
         {
-            return text;
+            return _data.FirstOrDefault(s => s.Category == category);
         }
         // POST: api/Test
-        public void Post([FromBody]string value)
+        public void Post([FromBody]TestModel model)
         {
-             
-            
+            _data.Add(model);
         }
 
         // PUT: api/Test/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]TestModel model)
         {
         }
 
         // DELETE: api/Test/5
         public void Delete(int id)
         {
+            var data = _data.FirstOrDefault(s => s.Id == id);
+            if (data != null)
+            {
+                _data.Remove(data);
+            }
+
         }
     }
 }
