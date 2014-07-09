@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Web.Http;
 using System.Web.Http.Filters;
-
+using A = Autofac;
 namespace Practice.WebAPI.Controllers
 {
     public class TestController : ApiController
@@ -15,23 +15,25 @@ namespace Practice.WebAPI.Controllers
         IList<TestModel> _data = TestModel.Data();
         public TestController()
         {
-
+            
         }
         // GET: api/Test
         public IEnumerable<TestModel> Get()
         {
-           
+            
             return _data;
         }
 
         // GET: api/Test/5
         public TestModel Get(int id)
         {
+            var r = GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(TestModel));
             return _data.FirstOrDefault(s => s.Id == id);
         }
-       
+
         public TestModel GetByCategory(string category)
         {
+            throw new Exception("test");
             return _data.FirstOrDefault(s => s.Category == category);
         }
         // POST: api/Test

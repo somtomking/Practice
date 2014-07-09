@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi2.3.3.3\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -78,6 +84,12 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Authorize\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Autofac\ApplicationServiceAutofacModule.cs" />
+    <Compile Include="Autofac\Filters\LoggingActionFilter.cs" />
+    <Compile Include="Autofac\Filters\LoggingExceptionFilter.cs" />
+    <Compile Include="Autofac\WebApiAutofacModule.cs" />
+    <Compile Include="Code\Loger\ILogFacadeService.cs" />
+    <Compile Include="Code\Loger\LogFacadeService.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

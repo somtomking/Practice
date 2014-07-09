@@ -42,7 +42,7 @@ namespace Practice.Net4
             Console.WriteLine("end-----------------Average---------------end:");
 
             var result4 = queryData.DefaultIfEmpty();
-            queryData.ToLookup()
+         
             Console.Read();
         }
         static IEnumerable<int> GetArray(int max)
