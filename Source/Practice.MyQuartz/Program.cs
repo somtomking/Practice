@@ -28,7 +28,7 @@ namespace Practice.MyQuartz
             ISchedulerFactory factory = new StdSchedulerFactory();
             //Quartz.
             IScheduler scheduler = factory.GetScheduler();//工厂生成一个调度器 
-          
+
             scheduler.Start();//启动调度器 
             //IJobDetail job = JobBuilder.Create<SimpleJob>().WithIdentity("SampleJob", "JobGroup1").Build();//新建一个任务 
             //ITrigger trigger = TriggerBuilder.Create().StartAt(DateTimeOffset.Now.AddSeconds(10)).Build();//创建触发器 
@@ -38,15 +38,35 @@ namespace Practice.MyQuartz
             Console.Read();
         }
     }
-
-
+    //防止一个方法未执行完，就进入。
+    [PersistJobDataAfterExecution]
+    [DisallowConcurrentExecution]
     public class SimpleJob : IJob
     {
         private int _count = 0;
         public void Execute(IJobExecutionContext context)
         {
+            JobKey jobKey = context.JobDetail.Key;
+
+            // Grab and print passed parameters
+            JobDataMap data = context.JobDetail.JobDataMap;
+            if (data.ContainsKey("Count"))
+            {
+                _count = data.GetInt("Count");
+            }
+            else
+            {
+                data.Add("Count", _count);
+            }
             _count++;
+
+            data.Put("Count", _count);
             Console.WriteLine(" 任务执行了 " + _count);
+        }
+
+        public void Interrupt()
+        {
+             
         }
     }
 }
