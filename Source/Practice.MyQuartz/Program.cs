@@ -35,6 +35,10 @@ namespace Practice.MyQuartz
 
             //scheduler.ScheduleJob(job, trigger);//将任务与触发器关联起来放到调度器中 
 
+            
+            Console.Read();
+            Console.WriteLine("立即执行!");
+            scheduler.TriggerJob(new JobKey("simpleJob", "simpleGroup"));
             Console.Read();
         }
     }
@@ -62,11 +66,14 @@ namespace Practice.MyQuartz
 
             data.Put("Count", _count);
             Console.WriteLine(" 任务执行了 " + _count);
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+           
         }
 
         public void Interrupt()
         {
-             
+
         }
     }
 }
