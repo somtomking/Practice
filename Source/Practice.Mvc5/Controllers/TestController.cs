@@ -8,10 +8,20 @@ namespace Practice.Mvc5.Controllers
 {
     public class TestController : Controller
     {
-         
+
         public ActionResult Index()
         {
             return View();
         }
-	}
+
+        public ActionResult JQ()
+        {
+            return View();
+        }
+
+        public ActionResult Sel()
+        {
+            return View();
+        }
+    }
 }

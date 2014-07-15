@@ -1,0 +1,278 @@
+﻿@model IEnumerable<ProvinceModel>
+@using Practice.Mvc5.Models;
+<style>
+  .province-list {
+    width: 450px;
+   
+  }
+
+  .province-item {
+    position: relative;
+    float: left;
+    margin-right: 1px;
+    padding-right: 8px;
+    height: 30px;
+    width: 80px;
+  }
+
+  .city-list {
+  }
+
+  .close_button {
+  }
+
+  .province-area {
+    white-space: nowrap;
+    margin-right: 3px;
+    padding: 4px 4px 1px;
+    display: inline-block;
+    position: relative;
+    height: 17px;
+    border: 1px solid #FFF;
+  }
+
+  .city-area {
+  }
+
+  .check_num {
+    color: #F60;
+    font-size: 12px;
+    letter-spacing: -1px;
+  }
+
+  span.city-area {
+    margin-right: 3px;
+    padding: 4px 0px 1px 4px;
+    display: inline-block;
+  }
+
+  .province-list *, .province-list *:before, .province-list *:after {
+    box-sizing: initial;
+  }
+
+  .trigger {
+    width: 8px;
+    height: 8px;
+    padding: 2px;
+    cursor: pointer;
+  }
+
+
+
+  .city-list {
+    background-color: #FFFEC6;
+    position: absolute;
+    float: right;
+    border: 1px solid #F7E4A5;
+    z-index: 20000;
+    top: 23px;
+    left: 0px;
+    width: 214px;
+    display: none;
+  }
+
+    .city-list span {
+      line-height: 2;
+      margin-right: 2px;
+    }
+
+  .showCityPop .city-list {
+    display: block;
+    z-index: 55900;
+  }
+
+  .showCityPop {
+    z-index: 55556;
+  }
+
+    .showCityPop .province-area {
+      border-style: solid;
+      -moz-border-top-colors: none;
+      -moz-border-right-colors: none;
+      -moz-border-bottom-colors: none;
+      z-index: 56000;
+      border-image: none;
+      -moz-border-left-colors: none;
+      border-color: #F7E4A5 #F7E4A5 #FFFEC6;
+      border-width: 1px;
+      background-color: #FFFEC6;
+    }
+
+  span .province-area {
+    margin-right: 3px;
+    padding: 4px 4px 1px;
+    display: inline-block;
+    position: relative;
+    height: 17px;
+    border: 1px solid #FFF;
+    white-space: nowrap;
+  }
+</style>
+<div class="province-list">
+  <div class="province-item showCityPop ">
+    <span class="province-area">
+      <input id="ck_province" type="checkbox" />
+      <label for="ck_province">省市1</label>
+      <span class="check_num">(5)</span>
+      <img class="trigger" src="http://img01.taobaocdn.com/tps/i1/T1XZCWXd8iXXXXXXXX-8-8.gif">
+    </span>
+    <div class="city-list">
+      <span class="city-Item city-area">
+        <input id="ck_city_1" type="checkbox" />
+        <label for="ck_city_1">城市1</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_2" type="checkbox" />
+        <label for="ck_city_2">城市2</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_3" type="checkbox" />
+        <label for="ck_city_3">城市3</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_4" type="checkbox" />
+        <label for="ck_city_4">城市4</label>
+      </span>
+      <p style="text-align:right;"><input value="关闭" class="close_button" type="button"></p>
+    </div>
+  </div>
+
+  <div class="province-item  ">
+    <span class="province-area">
+      <input id="ck_province2" type="checkbox" />
+      <label for="ck_province2">省市2</label>
+      <img class="trigger" src="http://img01.taobaocdn.com/tps/i1/T1XZCWXd8iXXXXXXXX-8-8.gif">
+    </span>
+    <div class="city-list">
+      <span class="city-Item city-area">
+        <input id="ck_city_1_1" type="checkbox" />
+        <label for="ck_city_1_1">城市1</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_2_1" type="checkbox" />
+        <label for="ck_city_2_1">城市2</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_3_1" type="checkbox" />
+        <label for="ck_city_3_1">城市3</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_4_1" type="checkbox" />
+        <label for="ck_city_4_1">城市4</label>
+      </span>
+      <p style="text-align:right;"><input value="关闭" class="close_button" type="button"></p>
+    </div>
+  </div>
+
+  <div class="province-item  ">
+    <span class="province-area">
+      <input id="ck_province_2" type="checkbox" />
+      <label for="ck_province_2">省市3</label>
+      <img class="trigger" src="http://img01.taobaocdn.com/tps/i1/T1XZCWXd8iXXXXXXXX-8-8.gif">
+    </span>
+    <div class="city-list">
+      <span class="city-Item city-area">
+        <input id="ck_city_1_2" type="checkbox" />
+        <label for="ck_city_1_2">城市1</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_2_2" type="checkbox" />
+        <label for="ck_city_2_2">城市2</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_3_2" type="checkbox" />
+        <label for="ck_city_3_2">城市3</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_4_2" type="checkbox" />
+        <label for="ck_city_4_2">城市4</label>
+      </span>
+      <p style="text-align:right;"><input value="关闭" class="close_button" type="button"></p>
+    </div>
+  </div>
+
+  <div class="province-item  ">
+    <span class="province-area">
+      <input id="ck_province_3" type="checkbox" />
+      <label for="ck_province_3">省市4</label>
+      <img class="trigger" src="http://img01.taobaocdn.com/tps/i1/T1XZCWXd8iXXXXXXXX-8-8.gif">
+    </span>
+    <div class="city-list">
+      <span class="city-Item city-area">
+        <input id="ck_city_1_3" type="checkbox" />
+        <label for="ck_city_1_3">城市1</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_2_3" type="checkbox" />
+        <label for="ck_city_2_3">城市2</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_3_3" type="checkbox" />
+        <label for="ck_city_3_3">城市3</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_4_3" type="checkbox" />
+        <label for="ck_city_4_3">城市4</label>
+      </span>
+      <p style="text-align:right;"><input value="关闭" class="close_button" type="button"></p>
+    </div>
+  </div>
+
+  <div class="province-item  ">
+    <span class="province-area">
+      <input id="ck_province_4" type="checkbox" />
+      <label for="ck_province_4">省市5</label>
+      <img class="trigger" src="http://img01.taobaocdn.com/tps/i1/T1XZCWXd8iXXXXXXXX-8-8.gif">
+    </span>
+    <div class="city-list">
+      <span class="city-Item city-area">
+        <input id="ck_city_1_1" type="checkbox" />
+        <label for="ck_city_1_1">城市1</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_2_4" type="checkbox" />
+        <label for="ck_city_2_4">城市2</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_3_4" type="checkbox" />
+        <label for="ck_city_3_4">城市3</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_4_4" type="checkbox" />
+        <label for="ck_city_4_4">城市4</label>
+      </span>
+      <p style="text-align:right;"><input value="关闭" class="close_button" type="button"></p>
+    </div>
+  </div>
+
+  <div class="province-item  ">
+    <span class="province-area">
+      <input id="ck_province_5" type="checkbox" />
+      <label for="ck_province_5">省市6</label>
+      <img class="trigger" src="http://img01.taobaocdn.com/tps/i1/T1XZCWXd8iXXXXXXXX-8-8.gif">
+    </span>
+    <div class="city-list">
+      <span class="city-Item city-area">
+        <input id="ck_city_1_5" type="checkbox" />
+        <label for="ck_city_1_5">城市1</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_2_5" type="checkbox" />
+        <label for="ck_city_2_5">城市2</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_3_5" type="checkbox" />
+        <label for="ck_city_3_5">城市3</label>
+      </span>
+      <span class="city-Item city-area">
+        <input id="ck_city_4_5" type="checkbox" />
+        <label for="ck_city_4_5">城市4</label>
+      </span>
+      <p style="text-align:right;"><input value="关闭" class="close_button" type="button"></p>
+    </div>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
