@@ -26,8 +26,11 @@
           {
 
             <tr>
-              <td>@Html.TextBoxFor(m => m.Items[loop].Name)</td>
-              <td>@Html.TextBoxFor(m => m.Items[loop].Price)</td>
+              @*<td>@Html.TextBoxFor(m => m.Items[loop].Name, new { @name = "Items[A"+loop+"].Name" })</td>
+              <td>@Html.TextBoxFor(m => m.Items[loop].Price, new { @name = "Items[A" + loop + "].Price" })</td>*@
+
+              <td>@Html.TextBox("Items[A" + loop + "].Name",Model.Items[loop].Name)</td>
+              <td>@Html.TextBox("Items[A" + loop + "].Price",Model.Items[loop].Price)</td>
               <td><input type="button" value="删除" onclick="removeRow(this)" /></td>
             </tr>
 
@@ -63,8 +66,8 @@
 
     function buildRow(rowNum)
     {
-      var nameTxt='<input  id="Items_'+rowNum+'__Name" name="Items['+rowNum+'].Name"  type="text">';
-      var priceTxt='<input id="Items_'+rowNum+'__Price" name="Items['+rowNum+'].Price"  type="text">';
+      var nameTxt='<input  id="Items_'+rowNum+'__Name" name="Items[A'+rowNum+'].Name"  type="text">';
+      var priceTxt='<input id="Items_'+rowNum+'__Price" name="Items[A'+rowNum+'].Price"  type="text">';
       var delBtn='<input type="button" value="删除" onclick="removeRow(this)" />';
       var row="<tr><td>"+nameTxt+"</td><td>"+priceTxt+"</td><td>"+delBtn+"</td></tr>";
       return row;
