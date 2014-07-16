@@ -1,0 +1,88 @@
+﻿@model FormModel.Order
+@using Practice.Mvc5.Models;
+@{
+  ViewBag.Title = "复杂类型的表单";
+}
+@using (Html.BeginForm())
+{<table class="table">
+    <tr>
+      <td>名称</td>
+      <td>@Html.TextBoxFor(m => m.Name)</td>
+    </tr>
+    <tr>
+      <td>数量</td>
+      <td>@Html.TextBoxFor(m => m.Count)</td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <table id="tbData">
+          <tr>
+            <td>名称</td>
+            <td>价格</td>
+            <td>操作</td>
+          </tr>
+          @for (int loop = 0; loop < Model.Items.Count; loop++)
+          {
+
+            <tr>
+              <td>@Html.TextBoxFor(m => m.Items[loop].Name)</td>
+              <td>@Html.TextBoxFor(m => m.Items[loop].Price)</td>
+              <td><input type="button" value="删除" onclick="removeRow(this)" /></td>
+            </tr>
+
+          }
+
+          <tr>
+            <td colspan="2">
+              <input type="button" value="Add" onclick="addRow()" />
+            </td>
+          </tr>
+        </table>
+      </td>
+
+
+    </tr>
+    <tr>
+      <td colspan="2">
+        <input type="submit" value="提交" />
+      </td>
+    </tr>
+  </table>
+  <script type="text/javascript">
+   
+
+
+    function addRow()
+    {
+      var rowCount=$("#tbData tr").length-2;
+      var row=  buildRow(rowCount);
+      $(row).insertAfter($("#tbData tr:eq("+rowCount+")"))
+
+    }
+
+    function buildRow(rowNum)
+    {
+      var nameTxt='<input  id="Items_'+rowNum+'__Name" name="Items['+rowNum+'].Name"  type="text">';
+      var priceTxt='<input id="Items_'+rowNum+'__Price" name="Items['+rowNum+'].Price"  type="text">';
+      var delBtn='<input type="button" value="删除" onclick="removeRow(this)" />';
+      var row="<tr><td>"+nameTxt+"</td><td>"+priceTxt+"</td><td>"+delBtn+"</td></tr>";
+      return row;
+    }
+
+    function resetRowsNum()
+    {
+      var rowCount = $("#tbData tr").length;
+      //首行是标题，尾行是操作行
+      for (var loop = 1; loop < rowCount-1; loop++) {
+
+      }
+    }
+    function removeRow(source)
+    {
+      $(source).parent().parent().remove();
+    }
+  </script>
+
+}
+
