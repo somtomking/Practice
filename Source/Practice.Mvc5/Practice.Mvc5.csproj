@@ -224,6 +224,7 @@
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
     <Content Include="Views\Test\JQ.cshtml" />
     <Content Include="Views\Test\Sel.cshtml" />
+    <Content Include="Views\Test\Json.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

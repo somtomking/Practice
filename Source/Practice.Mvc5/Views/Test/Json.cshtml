@@ -1,0 +1,53 @@
+﻿@{
+  ViewBag.Title = "Json";
+}
+<br />
+<span>Json1</span>
+
+
+<input type="button" value="tets" onclick="Add()">
+ 
+<input type="button" value="Display" onclick="Display()">
+
+<br />
+<span>Json2</span>
+<input type="button" value="Add2" onclick="Add2()">
+
+<input type="button" value="Display2" onclick="Display2()">
+<script type="text/javascript">
+
+  var data = [];
+  var data2 = [];
+  function Add() {
+    data = eval(@Html.Raw(ViewBag.Json1));
+  }
+ 
+  function Display() {
+    for (var key in data) {
+
+      var p = data[key];
+
+      for (var key2 in p.Cities) {
+        var c = p.Cities[key2];
+        console.debug(p.Name + '-' + c.Name);
+      }
+    }
+  }
+
+  function Add2() {
+    data2 = eval(@Html.Raw(ViewBag.Json2));
+
+  }
+  function Display2() {
+    for (var key in data2) {
+
+      var p = data2[key];
+
+      for (var key2 in p) {
+        var c = p[key2];
+        console.debug(key + '-' + c);
+      }
+    }
+  }
+</script>
+
