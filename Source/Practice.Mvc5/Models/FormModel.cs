@@ -22,7 +22,7 @@ namespace Practice.Mvc5.Models
             public int Id { get; set; }
             public string Name { get; set; }
             public int Count { get; set; }
-            [ModelBinder(typeof(CollectionModelBinder))]
+           // [ModelBinder(typeof(CollectionModelBinder))]
             public List<OrderItem> Items { get; set; }
         }
 
