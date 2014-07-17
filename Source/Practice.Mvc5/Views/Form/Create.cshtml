@@ -2,9 +2,19 @@
 @using Practice.Mvc5.Models;
 @{
   ViewBag.Title = "复杂类型的表单";
+  if (Model.Items == null)
+  {
+    Model.Items = new List<FormModel.OrderItem>(); 
+  }
 }
 @using (Html.BeginForm())
-{<table class="table">
+{
+  for (int loop = 0; loop < 50; loop++)
+  {
+
+    <input type="hidden" name="index" value="@("A"+loop)" />
+  }
+  <table class="table">
     <tr>
       <td>名称</td>
       <td>@Html.TextBoxFor(m => m.Name)</td>
@@ -27,10 +37,10 @@
 
             <tr>
               @*<td>@Html.TextBoxFor(m => m.Items[loop].Name, new { @name = "Items[A"+loop+"].Name" })</td>
-              <td>@Html.TextBoxFor(m => m.Items[loop].Price, new { @name = "Items[A" + loop + "].Price" })</td>*@
+                <td>@Html.TextBoxFor(m => m.Items[loop].Price, new { @name = "Items[A" + loop + "].Price" })</td>*@
 
-              <td>@Html.TextBox("Items[A" + loop + "].Name",Model.Items[loop].Name)</td>
-              <td>@Html.TextBox("Items[A" + loop + "].Price",Model.Items[loop].Price)</td>
+              <td>@Html.TextBox("Items[A" + loop + "].Name", Model.Items[loop].Name)</td>
+              <td>@Html.TextBox("Items[A" + loop + "].Price", Model.Items[loop].Price)</td>
               <td><input type="button" value="删除" onclick="removeRow(this)" /></td>
             </tr>
 
@@ -53,36 +63,32 @@
     </tr>
   </table>
   <script type="text/javascript">
-   
 
 
-    function addRow()
-    {
-      var rowCount=$("#tbData tr").length-2;
-      var row=  buildRow(rowCount);
-      $(row).insertAfter($("#tbData tr:eq("+rowCount+")"))
+
+    function addRow() {
+      var rowCount = $("#tbData tr").length - 2;
+      var row = buildRow(rowCount);
+      $(row).insertAfter($("#tbData tr:eq(" + rowCount + ")"))
 
     }
 
-    function buildRow(rowNum)
-    {
-      var nameTxt='<input  id="Items_'+rowNum+'__Name" name="Items[A'+rowNum+'].Name"  type="text">';
-      var priceTxt='<input id="Items_'+rowNum+'__Price" name="Items[A'+rowNum+'].Price"  type="text">';
-      var delBtn='<input type="button" value="删除" onclick="removeRow(this)" />';
-      var row="<tr><td>"+nameTxt+"</td><td>"+priceTxt+"</td><td>"+delBtn+"</td></tr>";
+    function buildRow(rowNum) {
+      var nameTxt = '<input  id="Items_' + rowNum + '__Name" name="Items[A' + rowNum + '].Name"  type="text">';
+      var priceTxt = '<input id="Items_' + rowNum + '__Price" name="Items[A' + rowNum + '].Price"  type="text">';
+      var delBtn = '<input type="button" value="删除" onclick="removeRow(this)" />';
+      var row = "<tr><td>" + nameTxt + "</td><td>" + priceTxt + "</td><td>" + delBtn + "</td></tr>";
       return row;
     }
 
-    function resetRowsNum()
-    {
+    function resetRowsNum() {
       var rowCount = $("#tbData tr").length;
       //首行是标题，尾行是操作行
-      for (var loop = 1; loop < rowCount-1; loop++) {
+      for (var loop = 1; loop < rowCount - 1; loop++) {
 
       }
     }
-    function removeRow(source)
-    {
+    function removeRow(source) {
       $(source).parent().parent().remove();
     }
   </script>
