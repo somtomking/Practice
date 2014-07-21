@@ -18,10 +18,26 @@ namespace Practice.Mvc5.Controllers
         [HttpPost]
         public ActionResult Create(FormModel.Order order)
         {
-            var dp= base.CreateTempDataProvider();
-      
-            
+            var dp = base.CreateTempDataProvider();
+
+
             return View(order);
+        }
+
+
+        [HttpGet]
+        public ActionResult Create2()
+        {
+        
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create2(List<string> names)
+        {
+
+
+
+            return View();
         }
 
         [HttpGet]
@@ -38,6 +54,6 @@ namespace Practice.Mvc5.Controllers
             return View(order);
         }
 
-        
+
     }
 }
