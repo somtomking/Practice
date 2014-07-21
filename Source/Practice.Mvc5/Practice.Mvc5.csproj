@@ -164,6 +164,7 @@
     <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModelMetaController.cs" />
+    <Compile Include="Controllers\MvcController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,6 +172,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FormModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MvcModel.cs" />
     <Compile Include="Models\ProvinceModel.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +231,7 @@
     <Content Include="Views\Test\Sel.cshtml" />
     <Content Include="Views\Test\Json.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\Mvc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
