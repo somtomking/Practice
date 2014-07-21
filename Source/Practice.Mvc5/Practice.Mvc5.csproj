@@ -229,6 +229,7 @@
     <Content Include="Views\Test\Sel.cshtml" />
     <Content Include="Views\Test\Json.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\Form\Create2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

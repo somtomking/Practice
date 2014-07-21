@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Create2";
+}
+@using (Html.BeginForm())
+{
+    for (int loop = 0; loop < 10; loop++)
+    {
+        @Html.CheckBox("names", false) @("test" + loop)
+    <br />
+    }
+    
+    <input type="submit"  value="ok"/>
+}
+
+
