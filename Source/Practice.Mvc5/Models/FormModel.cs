@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -20,9 +21,10 @@ namespace Practice.Mvc5.Models
                 Items = new List<OrderItem>();
             }
             public int Id { get; set; }
+
             public string Name { get; set; }
             public int Count { get; set; }
-           // [ModelBinder(typeof(CollectionModelBinder))]
+            // [ModelBinder(typeof(CollectionModelBinder))]
             public List<OrderItem> Items { get; set; }
         }
 
@@ -30,6 +32,7 @@ namespace Practice.Mvc5.Models
         {
             public int Id { get; set; }
             public string Name { get; set; }
+            
             public decimal Price { get; set; }
         }
     }
