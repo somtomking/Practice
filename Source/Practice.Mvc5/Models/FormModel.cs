@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -14,6 +15,7 @@ namespace Practice.Mvc5.Models
 {
     public class FormModel
     {
+
         public class Order
         {
             public Order()
@@ -22,18 +24,30 @@ namespace Practice.Mvc5.Models
             }
             public int Id { get; set; }
 
+            public IList<int> AllowItems { get; set; }
+
             public string Name { get; set; }
             public int Count { get; set; }
-            // [ModelBinder(typeof(CollectionModelBinder))]
+
             public List<OrderItem> Items { get; set; }
         }
-
         public class OrderItem
         {
             public int Id { get; set; }
+
+            [Required(ErrorMessage = "名字是必须的!")]
             public string Name { get; set; }
-            
+
             public decimal Price { get; set; }
+        }
+
+        public class OrderValidator : AbstractValidator<Order>
+        {
+            public OrderValidator()
+            {
+                this.RuleFor(s => s.Name).NotEmpty().When(s => s.Count < 1).WithMessage("数量小于1的时候名字不能为空!");
+
+            }
         }
     }
 

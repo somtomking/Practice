@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FluentValidation;
+using FluentValidation.Attributes;
+using FluentValidation.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +19,10 @@ namespace Practice.Mvc5
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            FluentValidationConfig.ConfigureContainer();
+            //FluentValidationModelValidatorProvider.Configure();
         }
+
+
     }
 }

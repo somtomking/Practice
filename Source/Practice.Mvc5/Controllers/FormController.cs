@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Practice.Mvc5.Models;
+using FluentValidation.Results;
 namespace Practice.Mvc5.Controllers
 {
     public class FormController : Controller
@@ -18,8 +19,12 @@ namespace Practice.Mvc5.Controllers
         [HttpPost]
         public ActionResult Create(FormModel.Order order)
         {
-            var dp = base.CreateTempDataProvider();
 
+            var success = ModelState.IsValid;
+            FormModel.OrderValidator v = new FormModel.OrderValidator();
+            var results = v.Validate(order);
+            bool validationSucceeded = results.IsValid;
+            IList<ValidationFailure> failures = results.Errors;
 
             return View(order);
         }
@@ -28,7 +33,7 @@ namespace Practice.Mvc5.Controllers
         [HttpGet]
         public ActionResult Create2()
         {
-        
+
             return View();
         }
         [HttpPost]

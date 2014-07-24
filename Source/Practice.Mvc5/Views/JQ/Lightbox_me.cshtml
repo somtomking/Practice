@@ -1,0 +1,34 @@
+﻿@{
+  ViewBag.Title = "Lightbox_me";
+}
+<input type="button" value="设置" onclick="set()" />
+
+
+<script type="text/javascript">
+  
+  function set() {
+    $('#dialog').lightbox_me({
+      centered: true,
+      onLoad: function () {
+
+      }
+    });
+  }
+  function test() {
+    $("#txtName").val(testStr);
+  }
+
+
+</script>
+
+
+
+<div id="dialog" style="display:none">
+  <label for="txtName">姓名</label>
+  <input id="txtName" type="text" autocomplete="off" />
+  <input type="button" value="测试弹出框的脚本" onclick="test()" />
+  <script type="text/javascript">
+    var testStr = 'abcde';
+
+  </script>
+</div>

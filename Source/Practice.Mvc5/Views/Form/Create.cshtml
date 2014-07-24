@@ -4,11 +4,15 @@
   ViewBag.Title = "复杂类型的表单";
   if (Model.Items == null)
   {
-    Model.Items = new List<FormModel.OrderItem>(); 
+    Model.Items = new List<FormModel.OrderItem>();
   }
+
+  Html.EnableClientValidation();
 }
+ 
 @using (Html.BeginForm())
 {
+
   for (int loop = 0; loop < 50; loop++)
   {
 
@@ -39,7 +43,13 @@
               @*<td>@Html.TextBoxFor(m => m.Items[loop].Name, new { @name = "Items[A"+loop+"].Name" })</td>
                 <td>@Html.TextBoxFor(m => m.Items[loop].Price, new { @name = "Items[A" + loop + "].Price" })</td>*@
 
-              <td>@Html.TextBox("Items[A" + loop + "].Name", Model.Items[loop].Name)</td>
+              <td>
+
+                @Html.EditorFor(s => Model.Items[loop].Name, "", "Items[A" + loop + "].Name")
+
+                @Html.ValidationMessage("Items[A" + loop + "].Name")
+
+              </td>
               <td>@Html.TextBox("Items[A" + loop + "].Price", Model.Items[loop].Price)</td>
               <td><input type="button" value="删除" onclick="removeRow(this)" /></td>
             </tr>
@@ -62,8 +72,8 @@
       </td>
     </tr>
   </table>
-  
-  
+
+
   <script type="text/javascript">
 
 
