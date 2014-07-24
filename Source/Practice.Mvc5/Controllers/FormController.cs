@@ -19,13 +19,6 @@ namespace Practice.Mvc5.Controllers
         [HttpPost]
         public ActionResult Create(FormModel.Order order)
         {
-
-            var success = ModelState.IsValid;
-            FormModel.OrderValidator v = new FormModel.OrderValidator();
-            var results = v.Validate(order);
-            bool validationSucceeded = results.IsValid;
-            IList<ValidationFailure> failures = results.Errors;
-
             return View(order);
         }
 

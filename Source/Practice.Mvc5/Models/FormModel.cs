@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using FluentValidation.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Practice.Mvc5.Models
 {
     public class FormModel
     {
-
+        [Validator(typeof(OrderValidator))]//此行是重点
         public class Order
         {
             public Order()
