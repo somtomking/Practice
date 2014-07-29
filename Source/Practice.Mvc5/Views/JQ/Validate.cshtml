@@ -1,0 +1,21 @@
+﻿@{
+  ViewBag.Title = "jQ.Validate";
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+  <input id="txtName" type="text" />
+  <input id="ok" type="submit" value="ok" />
+  @Html.EditorFor()
+}
+@section scripts{
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#form").validate({
+        submitHandler: function (form) {
+          alert("submitted");
+          form.submit();
+        }
+      });
+    });
+  </script>
+}

@@ -18,5 +18,15 @@ namespace Practice.Mvc5.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Lightbox_me(string msg)
+        {
+            return View();
+        }
+
+        public ActionResult Validate()
+        {
+            return View();
+        }
     }
 }

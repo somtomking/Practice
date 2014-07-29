@@ -250,6 +250,7 @@
     <Content Include="Views\Mvc\Index.cshtml" />
     <Content Include="Views\JQ\Index.cshtml" />
     <Content Include="Views\JQ\Lightbox_me.cshtml" />
+    <Content Include="Views\JQ\Validate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
