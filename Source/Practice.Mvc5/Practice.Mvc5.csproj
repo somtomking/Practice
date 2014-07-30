@@ -251,6 +251,7 @@
     <Content Include="Views\JQ\Index.cshtml" />
     <Content Include="Views\JQ\Lightbox_me.cshtml" />
     <Content Include="Views\JQ\Validate.cshtml" />
+    <Content Include="Views\JQ\Validate2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

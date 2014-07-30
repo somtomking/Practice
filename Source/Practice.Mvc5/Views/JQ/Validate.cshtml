@@ -4,14 +4,12 @@
 @section scripts{
     <script type="text/javascript">
         $(document).ready(function () {
-            $("form").validate({
-                debug: true,
-                rules:
-                        {
-                            name: { required: true, minlength: 5 },
-                            pass: { required: true }
-                        }
-            });
+            $.validator.addMethod("buga", function (value,element) {
+                return value == "buga";
+            }, '必需输入buga!');
+            $("form").validate();
+
+            $("#name").rules("add", { buga: true });
         });
       
 
@@ -54,7 +52,7 @@
     </script>
 }
 
-@**@
+
 
 <br />
 <br />
@@ -70,7 +68,7 @@
         <label>
             Name
         </label>
-        <input name="name" id="name" type="text" value="" class="required" /> <br />
+        <input name="name" id="name" type="text" value="" /> <br />
         <label>
             Pass
         </label>

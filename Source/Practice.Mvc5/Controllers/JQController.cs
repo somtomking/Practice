@@ -28,5 +28,9 @@ namespace Practice.Mvc5.Controllers
         {
             return View();
         }
+        public ActionResult Validate2()
+        {
+            return View();
+        }
     }
 }
