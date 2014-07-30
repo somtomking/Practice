@@ -1,21 +1,86 @@
 ﻿@{
-  ViewBag.Title = "jQ.Validate";
-}
-@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
-{
-  <input id="txtName" type="text" />
-  <input id="ok" type="submit" value="ok" />
-  @Html.EditorFor()
+    ViewBag.Title = "jQ.Validate";
 }
 @section scripts{
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("#form").validate({
-        submitHandler: function (form) {
-          alert("submitted");
-          form.submit();
-        }
-      });
-    });
-  </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("form").validate({
+                debug: true,
+                rules:
+                        {
+                            name: { required: true, minlength: 5 },
+                            pass: { required: true }
+                        }
+            });
+        });
+      
+
+
+        //$(function () {
+        //    $("#from").validate(
+        //    {
+        //        groups: {
+        //            gro: "name pass",
+        //            name2: "email",
+        //        }, errorPlacement: function (error, element) {
+        //            if (element.attr("name") == "fname"
+        //                        || element.attr("name") == "lname")
+        //                error.insertAfter("#lastname");
+        //            else
+        //                error.insertAfter(element);
+        //        },
+        //        debug: true,
+
+
+        //        showErrors: function (errorMap, errorList) {
+        //            $("#messageBox").html("Your form contains " + this.numberOfInvalids()
+        //                + " errors, see details below.");
+
+        //        }, //可以完全自定义错误显示,得到错误的显示句柄
+        //          errorLabelContainer: "#messageBox",//错误统一输出到一个容器
+        //        errorClass: "error",//验证出错时使用的css class
+        //        errorElement: "span", //错误消息的html标签
+        //        wrapper: "li",//错误消息的外层封装html标签
+        //        errorPlacement: function (error, element) {
+        //            error.appendTo(element.parent("td").next("td"));
+        //        },//默认情况下，错误消息是放在验证元素后面的，可以自定义错误消息的显示位置(设置了errorLabelContainer 就无效了)
+        //        rules:
+        //        {
+        //            name: { required: true, minlength: 5 },
+        //            pass: { required: true }
+        //        }
+        //    });
+        //});
+    </script>
+}
+
+@**@
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div id="messageBox">
+
+</div>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "from" }))
+{
+    <div id="group1" class="group1">
+        <label>
+            Name
+        </label>
+        <input name="name" id="name" type="text" value="" class="required" /> <br />
+        <label>
+            Pass
+        </label>
+
+        <input name="pass" type="text" value="" class="required number" minlength="4" range="0,1000" /> <br />
+        <label>
+            Email
+        </label>
+        <input name="email" type="text" value="" class="required email " /> <br />
+    </div>
+    <input type="submit" value="submit" />
+
 }

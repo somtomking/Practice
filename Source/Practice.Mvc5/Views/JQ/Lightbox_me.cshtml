@@ -1,40 +1,42 @@
 ﻿@{
-  ViewBag.Title = "Lightbox_me";
+    ViewBag.Title = "Lightbox_me";
 }
 @using (Html.BeginForm())
 {
-  <input type="button" value="设置" onclick="set()" />
-  <input type="submit"  value="ok"/>
+    <input type="button" value="设置" onclick="set()" />
+    <input type="submit" value="ok" />
 
-  <script type="text/javascript">
-
-    function set() {
-      $('#dialog').lightbox_me({
-        centered: true,
-        onLoad: function () {
-
-        }
-      });
-    }
-    function test() {
-      $("#txtName").val(testStr);
-      $("#msg").val(testStr);
-    }
-
-
-  </script>
-
-  <input id="msg" type="hidden" name="msg" value="" />
-  /*包括在dialog的成员是没有办法传递到form里的*/
-  <div id="dialog" style="display:none">
-    <label for="txtName">姓名</label>
-    <input id="txtName" type="text" autocomplete="off" />
-    <input type="button" value="测试弹出框的脚本" onclick="test()" />
-    
     <script type="text/javascript">
-      var testStr = 'abcde';
+
+        function set() {
+            $('#dialog').lightbox_me({
+                centered: true,
+                onLoad: function () {
+
+                }
+            });
+        }
+
+
 
     </script>
-  </div>
+
+    <div style="display:none">
+        <input id="msg" type="hidden" name="msg" />
+    </div>
+    /*包括在dialog的成员是没有办法传递到form里的*/
+    <div id="dialog" style="display:none">
+        <label for="txtName">姓名</label>
+        <input id="txtName" name="txtName" type="text" autocomplete="off" />
+        <input type="button" value="测试弹出框的脚本" onclick="test()" />
+     
+        <script type="text/javascript">
+            var testStr = 'abcde';
+            function test() {
+                $("#txtName").val(testStr);
+                $("#msg").val(testStr);
+            }
+        </script>
+    </div>
 
 }
