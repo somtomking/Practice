@@ -1,0 +1,27 @@
+﻿@{
+  ViewBag.Title = "Validate3";
+}
+
+<h2>Validate3</h2>
+
+@section scripts{
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $("#from").validate({
+        errorPlacement: function (error, element) {
+          error.appendTo(element.parent());
+          
+        }
+      });
+
+
+    });
+  </script>
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "from" }))
+{
+  <input type="text" class="required" />
+  <input type="submit" value="ok" />
+}

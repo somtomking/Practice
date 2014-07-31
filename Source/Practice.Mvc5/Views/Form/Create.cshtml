@@ -7,9 +7,24 @@
     Model.Items = new List<FormModel.OrderItem>();
   }
 
-  Html.EnableClientValidation();
+  Html.EnableClientValidation(true);
 }
- 
+<textarea id="template" style="display:none">
+  <tr>
+    <td>
+
+      @Html.EditorFor(s => Model.Items[0].Name, "", "Items[A{0}].Name")
+
+      @Html.ValidationMessage("Items[A{0}].Name")
+
+    </td>
+    <td>
+      @Html.EditorFor(s => Model.Items[0].Price, "", "Items[A{0}].Price")
+      @Html.ValidationMessage("Items[A{0}].Price")
+    </td>
+    <td><input type="button" value="删除" onclick="removeRow(this)" /></td>
+  </tr>
+</textarea>
 @using (Html.BeginForm())
 {
 
@@ -18,16 +33,16 @@
 
     <input type="hidden" name="Items.Index" value="@("A"+loop)" />
   }
+
   <table class="table">
     <tr>
       <td>名称</td>
-      <td>@Html.TextBoxFor(m => m.Name)</td>
+      <td>@Html.TextBoxFor(m => m.Name) @Html.ValidationMessageFor(m => m.Name)</td>
     </tr>
     <tr>
       <td>数量</td>
-      <td>@Html.TextBoxFor(m => m.Count)</td>
+      <td>@Html.TextBoxFor(m => m.Count)@Html.ValidationMessageFor(m => m.Count)</td>
     </tr>
-
     <tr>
       <td colspan="2">
         <table id="tbData">
@@ -50,7 +65,10 @@
                 @Html.ValidationMessage("Items[A" + loop + "].Name")
 
               </td>
-              <td>@Html.TextBox("Items[A" + loop + "].Price", Model.Items[loop].Price)</td>
+              <td>
+                @Html.EditorFor(s => Model.Items[loop].Price, "", "Items[A" + loop + "].Price")
+                @Html.ValidationMessage("Items[A" + loop + "].Price")
+              </td>
               <td><input type="button" value="删除" onclick="removeRow(this)" /></td>
             </tr>
 
@@ -74,36 +92,45 @@
   </table>
 
 
-  <script type="text/javascript">
-
-
-
-    function addRow() {
-      var rowCount = $("#tbData tr").length - 2;
-      var row = buildRow(rowCount);
-      $(row).insertAfter($("#tbData tr:eq(" + rowCount + ")"))
-
-    }
-
-    function buildRow(rowNum) {
-      var nameTxt = '<input  id="Items_' + rowNum + '__Name" name="Items[A' + rowNum + '].Name"  type="text">';
-      var priceTxt = '<input id="Items_' + rowNum + '__Price" name="Items[A' + rowNum + '].Price"  type="text">';
-      var delBtn = '<input type="button" value="删除" onclick="removeRow(this)" />';
-      var row = "<tr><td>" + nameTxt + "</td><td>" + priceTxt + "</td><td>" + delBtn + "</td></tr>";
-      return row;
-    }
-
-    function resetRowsNum() {
-      var rowCount = $("#tbData tr").length;
-      //首行是标题，尾行是操作行
-      for (var loop = 1; loop < rowCount - 1; loop++) {
-
-      }
-    }
-    function removeRow(source) {
-      $(source).parent().parent().remove();
-    }
-  </script>
+ 
 
 }
 
+@section scripts{
+<script type="text/javascript">
+
+
+
+  function addRow() {
+    var rowCount = $("#tbData tr").length - 2;
+    var row = buildRow2(rowCount);
+    $(row).insertAfter($("#tbData tr:eq(" + rowCount + ")"))
+
+  }
+
+  function buildRow(rowNum) {
+    var nameTxt = '<input  id="Items_' + rowNum + '__Name" name="Items[A' + rowNum + '].Name"  type="text">';
+    var priceTxt = '<input id="Items_' + rowNum + '__Price" name="Items[A' + rowNum + '].Price"  type="text">';
+    var delBtn = '<input type="button" value="删除" onclick="removeRow(this)" />';
+    var row = "<tr><td>" + nameTxt + "</td><td>" + priceTxt + "</td><td>" + delBtn + "</td></tr>";
+    return row;
+  }
+
+  function resetRowsNum() {
+    var rowCount = $("#tbData tr").length;
+    //首行是标题，尾行是操作行
+    for (var loop = 1; loop < rowCount - 1; loop++) {
+
+    }
+  }
+  function removeRow(source) {
+    $(source).parent().parent().remove();
+  }
+  var template = jQuery.validator.format($.trim($("#template").val()));
+  function buildRow2(count) {
+    return template(count);
+  }
+
+</script>
+
+  }

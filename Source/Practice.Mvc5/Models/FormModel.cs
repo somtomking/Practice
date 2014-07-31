@@ -16,7 +16,7 @@ namespace Practice.Mvc5.Models
 {
     public class FormModel
     {
-        [Validator(typeof(OrderValidator))]//此行是重点
+        // [Validator(typeof(OrderValidator))]//此行是重点
         public class Order
         {
             public Order()
@@ -32,21 +32,37 @@ namespace Practice.Mvc5.Models
 
             public List<OrderItem> Items { get; set; }
         }
+        // [Validator(typeof(OrderItemValidator))]
         public class OrderItem
         {
             public int Id { get; set; }
-
-            [Required(ErrorMessage = "名字是必须的!")]
+            [Required(ErrorMessage = "订单项不能为空！")]
             public string Name { get; set; }
-
+            [Required(ErrorMessage = "金额不能为空！")]
+            [Range(10, 15, ErrorMessage = "金额必须在10和15之间")]
             public decimal Price { get; set; }
         }
 
+
+        [Validator(typeof(OrderItemValidator))]
         public class OrderValidator : AbstractValidator<Order>
         {
             public OrderValidator()
             {
-                this.RuleFor(s => s.Name).NotEmpty().When(s => s.Count < 1).WithMessage("数量小于1的时候名字不能为空!");
+                this.RuleFor(s => s.Name).NotEmpty().WithMessage("订单名不能为空!");
+                this.RuleFor(s => s.Count).GreaterThan(10).WithMessage("数量必须大于10");
+
+
+            }
+        }
+
+
+        public class OrderItemValidator : AbstractValidator<OrderItem>
+        {
+            public OrderItemValidator()
+            {
+                this.RuleFor(s => s.Name).NotEmpty().WithMessage("订单项名不能为空!");
+                this.RuleFor(s => s.Price).GreaterThan(15).WithMessage("金额必须大于15!");
 
             }
         }
