@@ -13,7 +13,10 @@ namespace Practice.Mvc5.Controllers
         {
             return View();
         }
-
+        public ActionResult Index2()
+        {
+            return View();
+        }
         public ActionResult Lightbox_me()
         {
             return View();
