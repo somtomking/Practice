@@ -1,6 +1,57 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+
 }
 
- 
+<form id="form1" action='@Url.Action("Index")' method="post">
+    <fieldset>
+        <legend>
+            简单的验证,查看基础设置下Validate的行为
+        </legend>
+        姓名
+        <input type="text" name="name" class="required" />
+        <br />
+        爱好:<input type="text" name="like" class="required" />
+        <br />
+        <p>
+            结论:用默认的验证，验证失败的元素会在 class 加上一个 error 的class
+            并在元素之后加入一个描述的lable,这些都是可以更改的
+        </p>
+    </fieldset>
+    <div id="msgContainer">
+        <ul></ul>
+    </div>
+    <div id="msgContainer2" style="display:none">
+        <h3>您发生了错误了!</h3>
+    </div>
+
+
+    <input type="submit" value="ok!" />
+</form>
+@section scripts{
+    <script type="text/javascript">
+
+
+        //全局设置,把调试设置为默认
+        //$.validator.setDefaults({
+        //    debug: true
+        //})
+        $(document).ready(function () {
+            $("#form1").validate({
+                debug: true,
+                errorContainer: "#msgContainer,#msgContainer2",//显示或者隐藏验证信息 
+                errorLabelContainer: "#msgContainer ul",//错误统一输出到一个容器
+                wrapper: "li",                              // 显示错误信息的外层标签名称.
+                highlight: function (element, errorClass) {  //针对验证的表单设置高亮
+                    $(element).addClass(errorClass);
+                },
+                //success: "valid"              //验证通过的样式类
+                // errorClass:"error"           //更改默认验证失败后应用到元素的class 名称
+                //errorElement: "span",         //添加到验证元素后的错误消息的html标签
+                // errorPlacement: function (error, element) {
+                //            error.appendTo(element.parent("td").next("td"));
+                //        },                    //默认情况下，错误消息是放在验证元素后面的，可以自定义错误消息的显示位置(设置了errorLabelContainer 就无效了)
+            });
+        });
+
+    </script>
+}

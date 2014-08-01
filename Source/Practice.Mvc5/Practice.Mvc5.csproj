@@ -192,6 +192,7 @@
     <Compile Include="Controllers\JQController.cs" />
     <Compile Include="Controllers\ModelMetaController.cs" />
     <Compile Include="Controllers\MvcController.cs" />
+    <Compile Include="Controllers\MvcValidateController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Global.asax.cs">
@@ -239,7 +240,7 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout_Base.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -269,9 +270,12 @@
     <Content Include="Views\JQ\Validate3.cshtml" />
     <Content Include="Views\Validate\Index.cshtml" />
     <Content Include="Views\JQ\Index2.cshtml" />
+    <Content Include="Views\MvcValidate\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\MvcValidate\" />
     <Folder Include="Views\ModelMeta\" />
     <Folder Include="Views\Shared\DisplayTemplates\" />
   </ItemGroup>
