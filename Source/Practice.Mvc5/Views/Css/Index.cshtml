@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>样式设置</title>
+    <style>
+        html, body {
+            height: 99%;
+          
+        }
+
+        body {
+            width: 99%;
+            /*外边距*/
+            margin: 0px 0px 0px 0px;
+            
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+            margin: 0px 0px 0px 0px;
+        }
+
+      
+        .relative {
+            position:relative;
+        }
+
+        .absolute {
+            position: absolute;
+            
+        }
+
+        .fixed {
+
+            position:fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>你好啊！</h1>
+         
+        <div style="width: 50px; height: 50px; border: solid;" class="relative">
+            <span>relative</span>
+        </div>
+        @*<div style="width:50px;height:50px;border:solid" class="absolute">
+            <span>absolute</span>
+        </div>
+        <div style="width: 50px; height: 50px; border: solid;" class="fixed">
+            <span>fixed</span>
+        </div>*@
+    </div>
+</body>
+</html>
