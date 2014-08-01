@@ -14,5 +14,10 @@ namespace Practice.Mvc5.Controllers
         {
             return View();
         }
+
+        public ActionResult JQMeta()
+        {
+            return View();
+        } 
 	}
 }

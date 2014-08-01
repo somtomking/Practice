@@ -10,8 +10,10 @@ namespace Practice.Mvc5
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/jquerymeta").Include(
+                     "~/Scripts/jquery.metadata.js"));
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                      "~/Scripts/jquery.validate.js"));
+                      "~/Scripts/jquery.validate.ex.js"));//此处修改为可以支持meta的验证，对jquery.validate进行了修改
             bundles.Add(new ScriptBundle("~/bundles/jqueryvalex").Include(
                         "~/Scripts/jquery.validate.unobtrusive.js"));
            

@@ -1,0 +1,34 @@
+﻿@{
+
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jquerymeta")
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $("#form1").validate({
+                debug: true,
+
+            });
+        });
+    </script>
+}
+
+<form id="form1" action='@Url.Action("Index")' method="post">
+    <fieldset>
+        <legend>
+            基于 metadata 的验证(修正版本貌似不支持消息的自定义)
+        </legend>
+        姓名
+        <input type="text" name="name" class="{required:true,minlength:5,messages:{required:'请输入内容'}}" />
+        <br />
+        爱好:<input type="text" name="like" />
+        <br />
+
+    </fieldset>
+
+
+
+    <input type="submit" value="ok!" />
+</form>
