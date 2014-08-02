@@ -39,5 +39,11 @@ namespace Practice.Mvc5.Controllers
         {
             return View();
         }
+
+
+        public ActionResult Template()
+        {
+            return View();
+        }
     }
 }

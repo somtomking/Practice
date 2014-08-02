@@ -277,6 +277,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Validate\JQMeta.cshtml" />
     <Content Include="Views\Css\Index.cshtml" />
+    <Content Include="Views\JQ\Template.cshtml" />
+    <Content Include="Views\Mvc\EditorTemplates\Contact.cshtml" />
+    <Content Include="Views\Mvc\DisplayTemplates\Contact.cshtml" />
+    <Content Include="Views\Mvc\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Mvc\EditorTemplates\Address.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

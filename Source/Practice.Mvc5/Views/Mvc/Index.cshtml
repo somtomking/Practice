@@ -3,4 +3,8 @@
 @{
   ViewBag.Title = "Index";
 }
-@Html.Value
+@using (Html.BeginForm())
+{
+  @Html.EditorForModel()
+  <input type="submit"  value="ok"/>
+}

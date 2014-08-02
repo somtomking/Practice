@@ -1,0 +1,13 @@
+﻿@model Practice.Mvc5.Models.MvcModel.Contact
+@{}
+@Html.DisplayNameFor(m => m.Email) : @Html.EditorFor(m => m.Email) @Html.ValidationMessageFor(s => s.Email)
+<br />
+@Html.DisplayNameFor(m => m.Name): @Html.EditorFor(m => m.Name) @Html.ValidationMessageFor(s => s.Name)
+<br />
+@Html.DisplayNameFor(m => m.PhoneNo): @Html.EditorFor(m => m.PhoneNo) @Html.ValidationMessageFor(s => s.PhoneNo)
+
+<br />
+@Html.DisplayNameFor(m => m.Address):
+<br />
+@Html.EditorFor(m => m.Address) @Html.ValidationMessageFor(s => s.Address)
+<br />
