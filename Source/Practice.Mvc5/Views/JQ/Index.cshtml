@@ -1,0 +1,55 @@
+﻿@{
+  ViewBag.Title = "选择器";
+}
+<style>
+  .container {
+  }
+
+  .content {
+  }
+</style>
+<div>
+  <input type="button" value="ID选择器" onclick="IdSelecter()" />
+  <input type="button" value="class选择器" onclick="ClassSelecter()" />
+  <input type="button" value="标签选择器" onclick="TagSelecter()" />
+  <input type="button" value="复合选择器" onclick="CompoundSelecter()" />
+  <input type="button" value="层次选择器" onclick="LevelSelecter()" />
+</div>
+
+<div class="container">
+  <div class="content">
+    <span>group1</span>
+    <ul>
+      <li><input id="userName" type="text" name="userName" /> </li>
+      <li><input id="age" type="text" name="age" /> </li>
+    </ul>
+  </div>
+  <div class="content">
+    <span>group2</span>
+    <ul>
+      <li><input id="userName2" type="text" name="userName" /> </li>
+      <li><input id="age2" type="text" name="age" /> </li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function IdSelecter() {
+    $("#userName").val("Id选择器");
+  }
+  function ClassSelecter() {
+    $(".content").css("background-color", "red");
+  }
+  function TagSelecter() {
+    $("#userName,li,.content").css("background-color", "red");
+  }
+  function CompoundSelecter() {
+    $("li").css("background-color", "red");
+  }
+
+  function LevelSelecter() {
+    $(".container>.content").css("background-color", "red");//获取直接子集
+    $(".container input:text").css("background-color", "red");//获取所有子集
+
+  }
+</script>

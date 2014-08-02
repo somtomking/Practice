@@ -24,6 +24,8 @@ namespace Practice.Mvc5.Controllers
         [HttpPost]
         public ActionResult Lightbox_me(string msg)
         {
+            
+            
             return View();
         }
 
