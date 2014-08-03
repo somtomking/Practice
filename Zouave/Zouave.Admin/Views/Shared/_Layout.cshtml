@@ -31,7 +31,7 @@
 
     <div id="content">
       <div id="content-header" class="mini">
-        <h1>Dashboard</h1>
+        <h1>仪表盘</h1>
         <ul class="mini-stats box-3">
           <li>
             <div class="left sparkline_bar_good"><span>2,4,9,7,12,10,12</span>+10%</div>
@@ -41,7 +41,7 @@
             </div>
           </li>
           <li>
-            <div class="left sparkline_bar_neutral"><span>20,15,18,14,10,9,9,9</span>0%</div>
+            <div class="left sparkline_bar_neutral"><span>20,15,18,14,10,9,9,20</span>0%</div>
             <div class="right">
               <strong>1433</strong>
               Users
@@ -57,19 +57,15 @@
         </ul>
       </div>
       <div id="breadcrumb">
-        <a href="#" title="Go to Home" class="tip-bottom"><i class="fa fa-home"></i> Home</a>
-        <a href="#" class="current">Dashboard</a>
+        <a href="#" title="回到主页" class="tip-bottom"><i class="fa fa-home"></i> 主页</a>
+        <a href="#" class="current">仪表盘</a>
       </div>
       <div class="container-fluid">
         @RenderBody()
 
       </div>
     </div>
-    <div class="row">
-      <div id="footer" class="col-xs-12">
-        大家好，我是尾部一郎！
-      </div>
-    </div>
+    @Html.Partial("_Footer")
   </div>
   @Scripts.Render("~/bundles/jquery")
   @Scripts.Render("~/bundles/jqueryval")
