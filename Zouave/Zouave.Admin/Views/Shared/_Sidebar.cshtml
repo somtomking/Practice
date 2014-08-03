@@ -1,0 +1,39 @@
+﻿@using Zouave.Admin.Models.Common;
+@{
+  IEnumerable<Menu> menus = null;
+}
+<div id="sidebar">
+  <div id="search">
+    <input type="text" placeholder="Search here..." /><button type="submit" class="tip-right" title="Search"><i class="fa fa-search"></i></button>
+  </div>
+  @if (menus != null && menus.Count() > 0)
+  {
+    <ul>
+      @foreach (var menu in menus)
+      {
+        if (menu.HasChild())
+        {
+          var openClassName = menu.IsOpen ? "open" : "";
+
+          <li class="subenu @openClassName">
+            <a href="#"><i class="fa @menu.ImgClass"></i> <span>@menu.Name</span> <i class="arrow fa fa-chevron-right"></i></a>
+            <ul>
+              @foreach (var item in menu.Items)
+              {
+                var activeClassName = item.Selected ? "active" : "";
+
+                <li class="@activeClassName"> <a href="@item.Url">@item.Name</a> </li>
+              }
+            </ul>
+          </li>
+        }
+        else
+        {
+          var activeClassName = menu.Selected ? "active" : "";
+          <li class="@activeClassName"> <a href="@menu.Url">@menu.Name</a> </li>
+        }
+      }
+    </ul>
+  }
+ 
+</div>
