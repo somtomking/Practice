@@ -214,18 +214,20 @@
       </div>
     </div>
   </div>
-  @*@Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/jquery")
   @Scripts.Render("~/bundles/jqueryval")
   @Scripts.Render("~/bundles/jqueryui")
   @Scripts.Render("~/bundles/jqueryplugins")
   @Scripts.Render("~/bundles/bootstrap")
 
-  @Scripts.Render("~/bundles/unicorn")*@
+  @Scripts.Render("~/bundles/unicorn")
 
-  <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/excanvas.min.js") "></script>
+  @*<script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/excanvas.min.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/jquery.min.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/jquery-ui.custom.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/bootstrap.min.js") "></script>
+
+
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/jquery.flot.min.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/jquery.flot.resize.min.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/jquery.sparkline.min.js") "></script>
@@ -233,7 +235,7 @@
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/fullcalendar.min.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/jquery.nicescroll.min.js") "></script>
   <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/unicorn.js") "></script>
-  <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/unicorn.dashboard.js") "></script>
+  <script type="text/javascript" src="@Scripts.Url("~/Content/unicorn/js/unicorn.dashboard.js") "></script>*@
   @RenderSection("js", false)
 </body>
 </html>
