@@ -1,0 +1,12 @@
+﻿excanvas			生成静态统计图
+bootbox				可编程对话框
+wysihtml5			富编辑器
+fullcalendar		日历插件
+jquery.flot			图表插件
+jquery.gritter		消息通知插件
+jquery.icheck		复选框插件
+jquery.masonry		瀑布流插件
+jquery.nicescroll	滚动条插件
+jquery.sparkline	图表插件
+jquery.wizard		向导插件？
+select2				下拉框插件

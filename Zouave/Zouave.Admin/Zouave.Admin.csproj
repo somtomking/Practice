@@ -126,9 +126,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Common\Menu.cs" />
+    <Compile Include="Models\Common\NameValueModel.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\unicorn\2014-05-09_22-49-02.txt" />
+    <Content Include="Content\unicorn\buttons.html" />
+    <Content Include="Content\unicorn\calendar.html" />
+    <Content Include="Content\unicorn\charts.html" />
+    <Content Include="Content\unicorn\chat.html" />
     <Content Include="Content\unicorn\css\bootstrap.min.css" />
     <Content Include="Content\unicorn\css\colorpicker.css" />
     <Content Include="Content\unicorn\css\datepicker.css" />
@@ -144,6 +152,12 @@
     <Content Include="Content\unicorn\css\select2.css" />
     <Content Include="Content\unicorn\css\unicorn-login.css" />
     <Content Include="Content\unicorn\css\unicorn.css" />
+    <Content Include="Content\unicorn\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\unicorn\form-common.html" />
+    <Content Include="Content\unicorn\form-validation.html" />
+    <Content Include="Content\unicorn\form-wizard.html" />
+    <Content Include="Content\unicorn\gallery.html" />
+    <Content Include="Content\unicorn\grid.html" />
     <Content Include="Content\unicorn\img\alpha.png" />
     <Content Include="Content\unicorn\img\breadcrumb.png" />
     <Content Include="Content\unicorn\img\demo\av1.jpg" />
@@ -228,16 +242,29 @@
     <Content Include="Content\unicorn\img\saturation.png" />
     <Content Include="Content\unicorn\img\select2.png" />
     <Content Include="Content\unicorn\img\select2x2.png" />
+    <Content Include="Content\unicorn\index.html" />
+    <Content Include="Content\unicorn\interface.html" />
+    <Content Include="Content\unicorn\invoice.html" />
+    <Content Include="Content\unicorn\jquery-ui.html" />
+    <Content Include="Content\unicorn\js\说明.txt" />
+    <Content Include="Content\unicorn\login.html" />
+    <Content Include="Content\unicorn\messages.html" />
+    <Content Include="Content\unicorn\tables.html" />
+    <Content Include="Content\unicorn\widgets.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\ViewModels.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\unicorn\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\unicorn\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\unicorn\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\unicorn\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -249,43 +276,44 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\unicorn\bootbox.min.js" />
-    <Content Include="Scripts\unicorn\bootstrap-colorpicker.js" />
-    <Content Include="Scripts\unicorn\bootstrap-datepicker.js" />
-    <Content Include="Scripts\unicorn\bootstrap-wysihtml5.js" />
-    <Content Include="Scripts\unicorn\bootstrap.min.js" />
-    <Content Include="Scripts\unicorn\excanvas.min.js" />
-    <Content Include="Scripts\unicorn\fullcalendar.min.js" />
-    <Content Include="Scripts\unicorn\jquery-ui.custom.js" />
-    <Content Include="Scripts\unicorn\jquery-ui.custom.min.js" />
-    <Content Include="Scripts\unicorn\jquery.dataTables.min.js" />
-    <Content Include="Scripts\unicorn\jquery.flot.min.js" />
-    <Content Include="Scripts\unicorn\jquery.flot.pie.min.js" />
-    <Content Include="Scripts\unicorn\jquery.flot.resize.min.js" />
-    <Content Include="Scripts\unicorn\jquery.gritter.min.js" />
-    <Content Include="Scripts\unicorn\jquery.icheck.min.js" />
-    <Content Include="Scripts\unicorn\jquery.masonry.min.js" />
-    <Content Include="Scripts\unicorn\jquery.min.js" />
-    <Content Include="Scripts\unicorn\jquery.nicescroll.min.js" />
-    <Content Include="Scripts\unicorn\jquery.sparkline.min.js" />
-    <Content Include="Scripts\unicorn\jquery.validate.js" />
-    <Content Include="Scripts\unicorn\jquery.wizard.js" />
-    <Content Include="Scripts\unicorn\respond.min.js" />
-    <Content Include="Scripts\unicorn\select2.min.js" />
-    <Content Include="Scripts\unicorn\unicorn.calendar.js" />
-    <Content Include="Scripts\unicorn\unicorn.charts.js" />
-    <Content Include="Scripts\unicorn\unicorn.chat.js" />
-    <Content Include="Scripts\unicorn\unicorn.dashboard.js" />
-    <Content Include="Scripts\unicorn\unicorn.form_common.js" />
-    <Content Include="Scripts\unicorn\unicorn.form_validation.js" />
-    <Content Include="Scripts\unicorn\unicorn.interface.js" />
-    <Content Include="Scripts\unicorn\unicorn.js" />
-    <Content Include="Scripts\unicorn\unicorn.jui.js" />
-    <Content Include="Scripts\unicorn\unicorn.login.js" />
-    <Content Include="Scripts\unicorn\unicorn.tables.js" />
-    <Content Include="Scripts\unicorn\unicorn.wizard.js" />
-    <Content Include="Scripts\unicorn\wysihtml5.js" />
+    <Content Include="Content\unicorn\js\bootbox.min.js" />
+    <Content Include="Content\unicorn\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\unicorn\js\bootstrap-datepicker.js" />
+    <Content Include="Content\unicorn\js\bootstrap-wysihtml5.js" />
+    <Content Include="Content\unicorn\js\bootstrap.min.js" />
+    <Content Include="Content\unicorn\js\excanvas.min.js" />
+    <Content Include="Content\unicorn\js\fullcalendar.min.js" />
+    <Content Include="Content\unicorn\js\jquery-ui.custom.js" />
+    <Content Include="Content\unicorn\js\jquery-ui.custom.min.js" />
+    <Content Include="Content\unicorn\js\jquery.dataTables.min.js" />
+    <Content Include="Content\unicorn\js\jquery.flot.min.js" />
+    <Content Include="Content\unicorn\js\jquery.flot.pie.min.js" />
+    <Content Include="Content\unicorn\js\jquery.flot.resize.min.js" />
+    <Content Include="Content\unicorn\js\jquery.gritter.min.js" />
+    <Content Include="Content\unicorn\js\jquery.icheck.min.js" />
+    <Content Include="Content\unicorn\js\jquery.masonry.min.js" />
+    <Content Include="Content\unicorn\js\jquery.min.js" />
+    <Content Include="Content\unicorn\js\jquery.nicescroll.min.js" />
+    <Content Include="Content\unicorn\js\jquery.sparkline.min.js" />
+    <Content Include="Content\unicorn\js\jquery.validate.js" />
+    <Content Include="Content\unicorn\js\jquery.wizard.js" />
+    <Content Include="Content\unicorn\js\respond.min.js" />
+    <Content Include="Content\unicorn\js\select2.min.js" />
+    <Content Include="Content\unicorn\js\unicorn.calendar.js" />
+    <Content Include="Content\unicorn\js\unicorn.charts.js" />
+    <Content Include="Content\unicorn\js\unicorn.chat.js" />
+    <Content Include="Content\unicorn\js\unicorn.dashboard.js" />
+    <Content Include="Content\unicorn\js\unicorn.form_common.js" />
+    <Content Include="Content\unicorn\js\unicorn.form_validation.js" />
+    <Content Include="Content\unicorn\js\unicorn.interface.js" />
+    <Content Include="Content\unicorn\js\unicorn.js" />
+    <Content Include="Content\unicorn\js\unicorn.jui.js" />
+    <Content Include="Content\unicorn\js\unicorn.login.js" />
+    <Content Include="Content\unicorn\js\unicorn.tables.js" />
+    <Content Include="Content\unicorn\js\unicorn.wizard.js" />
+    <Content Include="Content\unicorn\js\wysihtml5.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\说明.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -295,20 +323,15 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
