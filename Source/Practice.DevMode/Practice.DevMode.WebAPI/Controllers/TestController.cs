@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practice.DevMode.WebAPI.Infrastructure.Authorize;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,7 +11,7 @@ namespace Practice.DevMode.WebAPI.Controllers
 {
     public class TestController : ApiController
     {
-        // GET api/test
+        [HTTPBasicAuthorizeAttribute]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -27,7 +28,7 @@ namespace Practice.DevMode.WebAPI.Controllers
             {
                 return HttpContext.Current.Session["v"].ToString();
             }
-            
+
         }
 
         // POST api/test
