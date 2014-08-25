@@ -12,13 +12,21 @@ namespace Practice.DevMode.WebAPI
     {
         protected void Application_Start()
         {
-
+            
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            this.PostAuthenticateRequest += (sender, e) =>
+           
+        }
+        protected void Application_PostAuthorizeRequest()
+        {
+            if (IsWebApiRequest())
             {
                 HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
-                base.Init();
-            };
+            }
+        }
+
+        private bool IsWebApiRequest()
+        {
+            return HttpContext.Current.Request.AppRelativeCurrentExecutionFilePath.StartsWith(WebApiConfig.UrlPrefixRelative);
         }
     }
 }

@@ -4,38 +4,40 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 
-    <script type="text/javascript" src="./Scripts/jquery-1.10.2.js">
-        function sub() {
-            var val = $("#txt").val();
-            var url = '';
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: url,
-                data: val,
-                processData: false,
-                success: function (data) {
-                    alert(data);
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Error Occured!");
-                }
-            });
-        }
-
-        function doGet()
-        {
-            var url = '';
-            $.get(url, function (result) {
-                $("div").html(result);
-            });
-        }
+    <script type="text/javascript" src="../Scripts/jquery-1.10.2.js">
+      
 
     </script>
+  <script type="text/javascript">
+    function sub() {
+      var val = $("#txt").val();
+      var url = 'http://localhost:63640/api/test';
+      $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: url,
+        data: val,
+        processData: false,
+        success: function (data) {
+          alert(data);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert("Error Occured!");
+        }
+      });
+    }
+
+    function doGet() {
+      var url = 'http://localhost:63640/api/test';
+      $.get(url, function (result) {
+        $("div").html(result);
+      });
+    }
+  </script>
 </head>
 <body>
     <input id="txt" type="text" />
-    <input  type="button"  value="ok"/>
-    <input type="button" value="get" />
+    <input  type="button"  value="ok" onclick="sub()"/>
+  <input type="button" value="get" onclick="doGet()" />
 </body>
 </html>
