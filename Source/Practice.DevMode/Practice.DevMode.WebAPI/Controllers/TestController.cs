@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace Practice.DevMode.WebAPI.Controllers
@@ -18,12 +19,21 @@ namespace Practice.DevMode.WebAPI.Controllers
         // GET api/test/5
         public string Get(int id)
         {
-            return "value";
+            if (HttpContext.Current.Session["v"] == null)
+            {
+                return "NULL";
+            }
+            else
+            {
+                return HttpContext.Current.Session["v"].ToString();
+            }
+            
         }
 
         // POST api/test
         public void Post([FromBody]string value)
         {
+            HttpContext.Current.Session["v"] = value;
         }
 
         // PUT api/test/5

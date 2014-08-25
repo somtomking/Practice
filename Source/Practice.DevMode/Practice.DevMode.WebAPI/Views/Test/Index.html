@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <script type="text/javascript" src="./Scripts/jquery-1.10.2.js">
+        function sub() {
+            var val = $("#txt").val();
+            var url = '';
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: url,
+                data: val,
+                processData: false,
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Error Occured!");
+                }
+            });
+        }
+
+        function doGet()
+        {
+            var url = '';
+            $.get(url, function (result) {
+                $("div").html(result);
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <input id="txt" type="text" />
+    <input  type="button"  value="ok"/>
+    <input type="button" value="get" />
+</body>
+</html>
