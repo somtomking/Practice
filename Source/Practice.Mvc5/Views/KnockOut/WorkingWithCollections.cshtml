@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WorkingWithCollections</title>
+    <script type="text/javascript" src="/Scripts/knockout-3.2.0.js"></script>
+</head>
+<body>
+    <h2>People</h2>
+    <ul data-bind="foreach: people">
+        <li>
+            <div>
+                <span data-bind="text: name"> </span> has <span data-bind='text: children().length'>&nbsp;</span> children:
+                <a href='#' data-bind='click: addChild '>Add child</a>
+                <span class='renderTime' data-bind='visible: $root.showRenderTimes'>
+                    (person rendered at <span data-bind='text: new Date().getSeconds()'> </span>)
+                </span>
+            </div>
+            <ul data-bind="foreach: children">
+                <li>
+                    <span data-bind="text: $data"> </span>
+                    <span class='renderTime' data-bind='visible: $root.showRenderTimes'>
+                        (child rendered at <span data-bind='text: new Date().getSeconds()'> </span>)
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <label><input data-bind='checked: showRenderTimes' type='checkbox' /> Show render times</label> 
+
+    <script type="text/javascript">
+        // Define a "Person" class that tracks its own name and children, and has a method to add a new child
+        var Person = function (name, children) {
+            this.name = name;
+            this.children = ko.observableArray(children);
+
+            this.addChild = function () {
+                this.children.push("New child");
+            }.bind(this);
+        }
+
+        // The view model is an abstract description of the state of the UI, but without any knowledge of the UI technology (HTML)
+        var viewModel = {
+            people: [
+                new Person("Annabelle", ["Arnie", "Anders", "Apple"]),
+                new Person("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+                new Person("Charles", ["Cayenne", "Cleopatra"])
+            ],
+            showRenderTimes: ko.observable(false)
+        };
+
+        ko.applyBindings(viewModel);
+    </script>
+</body>
+</html>

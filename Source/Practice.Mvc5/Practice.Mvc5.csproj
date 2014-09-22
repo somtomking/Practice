@@ -951,7 +951,12 @@
     <Content Include="Views\Js\Index.cshtml" />
     <Content Include="Views\JsTempl\Index.cshtml" />
     <Content Include="Views\Kendo\Index.cshtml" />
-    <Content Include="Views\KnockOut\Index.cshtml" />
+    <Content Include="Views\KnockOut\HelloWorld.cshtml" />
+    <Content Include="Views\KnockOut\ClickCounter.cshtml" />
+    <Content Include="Views\KnockOut\SimpleList.cshtml" />
+    <Content Include="Views\KnockOut\BetterList.cshtml" />
+    <Content Include="Views\KnockOut\ControlTypes.cshtml" />
+    <Content Include="Views\KnockOut\WorkingWithCollections.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

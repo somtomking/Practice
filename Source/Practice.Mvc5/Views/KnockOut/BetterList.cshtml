@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BetterList</title>
+    <script type="text/javascript" src="/Scripts/knockout-3.2.0.js"></script>
+</head>
+<body>
+    <div>
+        <form data-bind="submit:addItem">
+            新增项: <input type="text" data-bind='value:itemToAdd, valueUpdate: "afterkeydown"' />
+            <button type="submit" data-bind="enable: itemToAdd().length > 0">新增</button>
+        </form>
+        <br />
+        <select multiple="multiple" width="50px" data-bind="options:allItems,selectedOptions:selectedItems"></select>
+        <button data-bind="click:removeSelected,enable:selectedItems().length>0">删除</button>
+        <button data-bind="click:sortItems,enable:allItems().length>1">排序</button>
+    </div>
+    <script type="text/javascript">
+        var betterListVm = function () {
+            this.itemToAdd = ko.observable("");
+            this.allItems = ko.observableArray(["Fries", "Eggs Benedict", "Ham", "Cheese"]); // Initial items
+            this.selectedItems = ko.observableArray(["Ham"]);
+            this.addItem = function () {
+                if ((this.itemToAdd() != "") && (this.allItems.indexOf(this.itemToAdd()) < 0)) // Prevent blanks and duplicates
+                    this.allItems.push(this.itemToAdd());
+                this.itemToAdd(""); // Clear the text box
+
+
+            };
+            this.removeSelected = function () {
+                this.allItems.removeAll(this.selectedItems());
+                this.selectedItems([]); // Clear selection
+            };
+
+            this.sortItems = function () {
+                this.allItems.sort();
+            };
+        };
+
+        ko.applyBindings(new betterListVm());
+    </script>
+
+</body>
+</html>
