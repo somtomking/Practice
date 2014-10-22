@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="/Scripts/knockout-3.2.0.js"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/knockout-3.2.0.js")"></script>*@
+ 
+</head>
+<body>
+    <div>
+        <p>My English Name is <span data-bind="text:name"></span></p>
+    </div>
+
+    <script type="text/javascript">
+        var myViewModel = {
+            name: "Ando"
+        };
+        myViewModel = ko.applyBindings(myViewModel);
+    </script>
+</body>
+</html>

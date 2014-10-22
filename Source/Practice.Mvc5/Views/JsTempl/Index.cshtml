@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JS 模板引擎</title>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.10.2.js")">
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Templates/jsrender.js")">
+    </script>
+    <script type="text/x-jsrender" id="personTemplate">
+
+        {{for #data}}
+        <tr>
+            <td>{{:#getIndex()}}</td>
+            <td>
+                {{if Id%2==0}}
+                {{:Id}}
+                {{else}}
+                <span style="color:red"> {{:Id}}</span>
+                {{/if}}
+            </td>
+            <td>{{html:Name}}</td>
+            <td>{{:Age}}</td>
+        </tr>
+        {{/for}}
+
+    </script>
+
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody id="data"></tbody>
+
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function loadData() {
+            var persons = [
+                { "Id": 1, "Name": 'liust', "Age": 24 },
+                { "Id": 2, "Name": ' <h2> liust2</h2>', "Age": 25 },
+                { "Id": 3, "Name": 'liust3', "Age": 25 },
+                { "Id": 4, "Name": 'liust4', "Age": 25 },
+                { "Id": 5, "Name": 'liust5', "Age": 25 },
+                { "Id": 6, "Name": 'liust6', "Age": 25 },
+                { "Id": 7, "Name": 'liust7', "Age": 25 },
+            ];
+            var html = $("#personTemplate").render(persons);
+            $("#data").html(html);
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

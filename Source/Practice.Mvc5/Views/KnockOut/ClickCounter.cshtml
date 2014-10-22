@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ClickCounter</title>
+    <script type="text/javascript" src="/Scripts/knockout-3.2.0.js"></script>
+</head>
+<body>
+    <div>
+        您已经点击了<span data-bind="text:numberOfClicks"></span>次了
+
+    </div>
+    <button data-bind="click:registerClick,disable:hasClickedTooManyTimes" >点击</button>
+    <button data-bind="click:resetClicks, visible:hasClickedTooManyTimes"  >重置</button>
+    <script type="text/javascript">
+        var clickCountVm = function () {
+            this.numberOfClicks = ko.observable(0);
+            this.registerClick = function () {
+
+                this.numberOfClicks(this.numberOfClicks() + 1);
+
+            };
+            this.resetClicks = function () {
+                this.numberOfClicks(0);
+            };
+            this.hasClickedTooManyTimes = ko.pureComputed(function () {
+                return this.numberOfClicks() >= 3;
+            }, this);
+        }
+        ko.applyBindings(new clickCountVm());
+    </script>
+</body>
+</html>

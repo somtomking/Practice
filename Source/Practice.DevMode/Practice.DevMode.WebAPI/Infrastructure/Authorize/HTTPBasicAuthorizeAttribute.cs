@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.Controllers;
 
 namespace Practice.DevMode.WebAPI.Infrastructure.Authorize
 {
     public class HTTPBasicAuthorizeAttribute : AuthorizeAttribute
     {
-        public override void OnAuthorization(HttpActionContext actionContext)
+        public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
             if (actionContext.Request.Headers.Authorization != null)
             {
@@ -31,7 +30,7 @@ namespace Practice.DevMode.WebAPI.Infrastructure.Authorize
             }
         }
 
-        protected override void HandleUnauthorizedRequest(HttpActionContext actionContext)
+        protected override void HandleUnauthorizedRequest(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
             var challengeMessage = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
             challengeMessage.Headers.Add("WWW-Authenticate", "Basic");
