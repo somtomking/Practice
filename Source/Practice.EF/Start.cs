@@ -18,11 +18,14 @@ namespace Practice.EF
                    new CreateTablesIfNotExist<MyDbContext>(new string[] { }, new string[] { }));
             using (MyDbContext my = new MyDbContext())
             {
-                ATable a = new ATable();
-               
-               
-                my.A.Add(a);
-                my.SaveChanges();
+                var a = my.A.FirstOrDefault();
+                a.B = null;
+
+                var result = my.SaveChanges();
+
+
+
+
             }
 
 

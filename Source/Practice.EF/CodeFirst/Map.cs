@@ -59,6 +59,8 @@ namespace Practice.EF.CodeFirst
            
             this.ToTable("ATable");
             this.HasRequired(s => s.B).WithRequiredPrincipal();
+           
+            
         }
 
     }
