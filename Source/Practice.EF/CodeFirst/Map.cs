@@ -11,7 +11,7 @@ namespace Practice.EF.CodeFirst
     {
         public OrderMap()
         {
-            
+
         }
 
     }
@@ -23,11 +23,11 @@ namespace Practice.EF.CodeFirst
 
         }
     }
-    public class ProductMap:EntityTypeConfiguration<BookProduct>
+    public class ProductMap : EntityTypeConfiguration<BookProduct>
     {
         public ProductMap()
         {
-            
+
         }
     }
     public class SimpleProductMap : EntityTypeConfiguration<SimpleProduct>
@@ -35,8 +35,8 @@ namespace Practice.EF.CodeFirst
         public SimpleProductMap()
         {
             this.Map(s => s.ToTable("SimpleProduct"));
-            this.Map(s=>s.MapInheritedProperties());
-           
+            this.Map(s => s.MapInheritedProperties());
+
         }
 
     }
@@ -47,8 +47,28 @@ namespace Practice.EF.CodeFirst
         {
             this.Map(s => s.ToTable("BookProduct"));
             this.Map(s => s.MapInheritedProperties());
-         
+
         }
 
+    }
+
+    public class ATableMap : EntityTypeConfiguration<ATable>
+    {
+        public ATableMap()
+        {
+           
+            this.ToTable("ATable");
+            this.HasRequired(s => s.B).WithRequiredPrincipal();
+        }
+
+    }
+    public class BTableMap : EntityTypeConfiguration<BTable>
+    {
+        public BTableMap()
+        {
+            
+            this.ToTable("BTable");
+
+        }
     }
 }
