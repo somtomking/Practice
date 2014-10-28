@@ -187,6 +187,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AutoFacController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
     <Compile Include="Controllers\CssController.cs" />
     <Compile Include="Controllers\FormController.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Models\ProvinceModel.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IAutoFacTestService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -957,6 +959,7 @@
     <Content Include="Views\KnockOut\BetterList.cshtml" />
     <Content Include="Views\KnockOut\ControlTypes.cshtml" />
     <Content Include="Views\KnockOut\WorkingWithCollections.cshtml" />
+    <Content Include="Views\AutoFac\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
