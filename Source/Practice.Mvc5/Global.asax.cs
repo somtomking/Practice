@@ -30,7 +30,7 @@ namespace Practice.Mvc5
             FluentValidationConfig.ConfigureContainer();
 
             ContainerBuilder builder = new ContainerBuilder();
-            builder.RegisterType<AutoFacTestService>().As<IAutoFacTestService>().InstancePerLifetimeScope();
+       
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).AsImplementedInterfaces();
 
