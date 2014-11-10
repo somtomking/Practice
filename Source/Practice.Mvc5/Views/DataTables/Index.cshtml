@@ -1,0 +1,70 @@
+﻿@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Index</title>
+  <link href="~/Content/Bootstrap-Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="~/Content/Bootstrap-Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+  <link href="~/Content/Bootstrap-Admin/assets/styles.css" rel="stylesheet" media="screen">
+  <link href="~/Content/Bootstrap-Admin/assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+  <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="vendors/flot/excanvas.min.js"></script><![endif]-->
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script src="~/Content/Bootstrap-Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+
+      <table id="table01" class="table">
+        <thead>
+          <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>价格</th>
+            <th>生日</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <script src="~/Content/Bootstrap-Admin/vendors/jquery-1.9.1.js"></script>
+  <script src="~/Content/Bootstrap-Admin/bootstrap/js/bootstrap.min.js"></script>
+  <script src="~/Content/Bootstrap-Admin/vendors/datatables/js/jquery.dataTables.js"></script>
+
+  <script src="~/Content/Bootstrap-Admin/assets/scripts.js"></script>
+  <script src="~/Content/Bootstrap-Admin/assets/DT_bootstrap.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      var table = $('#table01').dataTable({
+        "bSort": false,//排序
+        "bPaginate": true, //翻页功能
+        "bFilter": false, //过滤功能
+        "bInfo": false,//页脚信息
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": "@Url.Action("List")",//ajax
+        'aoColumns': [
+                   { "mData": "Id" },
+                   { "mData": "Name" },
+                   { "mData": "Price" },
+                   { "mData": "BirthDay" },
+                   { "mData": "Age" }],
+        "oLanguage": {
+          "sUrl": "/Content/Bootstrap-Admin/vendors/datatables/js/zh-CN.js"
+        }
+
+      });
+    });
+  </script>
+</body>
+</html>
