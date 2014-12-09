@@ -193,7 +193,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\FluentValidationConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\SignalRConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -210,6 +209,7 @@
     <Compile Include="Controllers\ModelMetaController.cs" />
     <Compile Include="Controllers\MvcController.cs" />
     <Compile Include="Controllers\MvcValidateController.cs" />
+    <Compile Include="Controllers\SignalRController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2176,6 +2176,7 @@
     <Content Include="Views\KnockOut\WorkingWithCollections.cshtml" />
     <Content Include="Views\AutoFac\Index.cshtml" />
     <Content Include="Views\DataTables\Index.cshtml" />
+    <Content Include="Views\SignalR2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
