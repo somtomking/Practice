@@ -203,6 +203,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JQController.cs" />
     <Compile Include="Controllers\JsController.cs" />
+    <Compile Include="Controllers\JsOnlyController.cs" />
     <Compile Include="Controllers\JsTemplController.cs" />
     <Compile Include="Controllers\KendoController.cs" />
     <Compile Include="Controllers\KnockOutController.cs" />
@@ -1922,6 +1923,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Html\Demo\Index.html" />
+    <Content Include="Html\Demo\info.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\kendo\js\jquery.min.map" />
@@ -2177,6 +2180,7 @@
     <Content Include="Views\AutoFac\Index.cshtml" />
     <Content Include="Views\DataTables\Index.cshtml" />
     <Content Include="Views\SignalR2\Index.cshtml" />
+    <Content Include="Views\JsOnly\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
